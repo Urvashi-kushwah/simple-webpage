@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Simple web Development Page</title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: sticky;
+			top: 0;
+			cursor: pointer;
+		}
+
+		.background {
+			background: black;
+			background-blend-mode: darken;
+			background-size: cover;
+		}
+
+		.nav-list {
+			width: 70%;
+			display: flex;
+			align-items: center;
+		}
+
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.logo img {
+			width: 180px;
+			border-radius: 50px;
+		}
+
+		.nav-list li {
+			list-style: none;
+			padding: 26px 30px;
+		}
+
+		.nav-list li a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.nav-list li a:hover {
+			color: grey;
+		}
+
+		.rightnav {
+			width: 30%;
+			text-align: right;
+		}
+
+		#search {
+			padding: 5px;
+			font-size: 17px;
+			border: 2px solid grey;
+			border-radius: 9px;
+		}
+
+		.firstsection {
+			background-color: orange;
+			height: 400px;
+		}
+
+		.secondsection {
+			background-color: pink;
+			height: 400px;
+		}
+
+		.box-main {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: black;
+			max-width: 80%;
+			margin: auto;
+			height: 80%;
+		}
+
+		.firsthalf {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.secondhalf {
+			width: 30%;
+		}
+
+		.secondhalf img {
+			width: 70%;
+			border: 4px solid white;
+			border-radius: 150px;
+			display: block;
+			margin: auto;
+		}
+
+		.text-big {
+			font-family: 'Timesofroman', serif;
+			font-weight: bold;
+			font-size: 35px;
+		}
+
+		.text-small {
+			font-size: 18px;
+		}
+
+		.btn {
+			padding: 8px 20px;
+			margin: 7px 0;
+			border: 2px solid white;
+			border-radius: 8px;
+			background: none;
+			color: white;
+			cursor: pointer;
+		}
+
+		.btn-sm {
+			padding: 6px 10px;
+			vertical-align: middle;
+		}
+
+		.section {
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			max-width: 90%;
+			margin: auto;
+		}
+
+		.section-Left {
+			flex-direction: row-reverse;
+		}
+
+		.paras {
+			padding: 0px 65px;
+		}
+
+		.thumbnail img {
+			width: 250px;
+			border: 2px solid black;
+			border-radius: 26px;
+			margin-top: 19px;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		.text-footer {
+			text-align: center;
+			padding: 30px 0;
+			font-family: 'Ubuntu', sans-serif;
+			display: flex;
+			justify-content: center;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar background">
+		<ul class="nav-list">
+			<div class="logo">
+				<img src= "data:image/png;base64,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">
+			</div>
+			<!--<li><a href="#web">Web Technology</a></li>
+			<li><a href="#program">Java Programming</a></li>-->
+			<li><a href="#course">Courses</a></li>
+		</ul>
+
+		<div class="rightNav">
+			<input type="text" name="search" id="search">
+			<button class="btn btn-sm">Search</button>
+		</div>
+	</nav>
+
+	<section class="firstsection">
+		<div class="box-main">
+			<div class="firstHalf">
+				<h1 class="text-big" id="web">Web Technology</h1>
+				<p class="text-small">
+					HTML stands for HyperText Markup Language.
+					It is used to design web pages using a markup
+					language. HTML is the combination of Hypertext
+					and Markup language. Hypertext defines the
+					link between the web pages.
+				</p>
+
+
+			</div>
+            <div class="thumbnail">
+                <img src= "https://w7.pngwing.com/pngs/63/313/png-transparent-html-computer-icons-world-wide-web.png" alt="HTML logo image">
+		</div>
+	</section>
+
+	<section class="secondsection">
+		<div class="box-main">
+			<div class="firstHalf">
+				<h1 class="text-big" id="program">
+					JavaScript Programming
+				</h1>
+				<p class="text-small">
+					JavaScript is the world's most popular programming language.
+                    JavaScript is the programming language of the web.JavaScript is easy to learn.
+
+				</p>
+
+
+			</div>
+            <div class="thumbnail">
+                <img src= "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png" alt="JS logo image">
+    
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="paras">
+			<h1 class="sectionTag text-big">Java</h1>
+
+			<p class="sectionSubTag text-small">
+				Java has been one of the most popular
+				programming language for many years.
+				Java is Object Oriented. However it is
+				not considered as pure object oriented
+				as it provides support for primitive
+				data types (like int, char, etc) The
+				Java codes are first compiled into byte
+				code (machine independent code). Then
+				the byte code is run on Java Virtual
+				Machine (JVM) regardless of the
+				underlying architecture.
+			</p>
+
+
+		</div>
+
+		<div class="thumbnail">
+			<img src= "data:image/png;base64,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" alt="Java logo image">
+		</div>
+	</section>
+
+	<footer class="background">
+		<p class="text-footer">
+			Made By Urvashi Kushwah
+		</p>
+
+
+	</footer>
+</body>
+
+</html>
